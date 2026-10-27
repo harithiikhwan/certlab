@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+	<title>Login — CertLab</title>
+	<link rel="stylesheet" href="login.css">
+</head>
+<body>
+	<div class="bg-decor" aria-hidden="true">
+		<span class="blob b1"></span>
+		<span class="blob b2"></span>
+		<span class="blob b3"></span>
+		<span class="grid"></span>
+	</div>
+
+	<div class="screen">
+		<header class="top-logo" role="banner">
+			<a class="brand" href="index.html" aria-label="CertLab home">
+				<img class="brand-logo" src="pic/logo.png" alt="CertLab logo">
+				<span class="brand-name">CertLab</span>
+			</a>
+		</header>
+
+		<main class="wrap">
+			<div class="layout">
+				<aside class="promo" aria-label="Welcome message">
+					<h2 class="promo-title">Welcome back</h2>
+					<p class="promo-text">Log in to continue your notes, exercises, and tests.</p>
+					<ul class="promo-list" aria-label="Highlights">
+						<li>Track chapter progress</li>
+						<li>Save notes across devices</li>
+						<li>Earn certificates</li>
+					</ul>
+				</aside>
+
+				<section class="login-card" aria-labelledby="login-title">
+					<h1 id="login-title" class="card-title">Login</h1>
+					<p class="card-subtitle">Let’s get you back to learning.</p>
+
+				<form id="loginForm" class="login-form" action="#" method="post" autocomplete="on">
+					<label class="field">
+						<span class="label-text">Email</span>
+						<input id="email" class="input" type="email" name="email" placeholder="johndoe@gmail.com" required autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false">
+					</label>
+
+					<label class="field">
+						<span class="label-text">Password</span>
+						<div class="password-wrap">
+							<input id="password" class="input" type="password" name="password" placeholder="●●●●●●●" required aria-describedby="pw-help" autocomplete="current-password">
+							<button type="button" class="eye-btn" aria-label="Show password" title="Show password"> 
+								<svg width="18" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="#111827" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+									<circle cx="12" cy="12" r="3" stroke="#111827" stroke-opacity="0.6" stroke-width="1.2" fill="#111827" fill-opacity="0.9"/>
+								</svg>
+							</button>
+						</div>
+					</label>
+
+					<div class="row small">
+						<label class="remember"><input type="checkbox" name="remember"> Remember Me</label>
+						<a class="link muted" href="forgotpass.html">Forgot Password?</a>
+					</div>
+
+					<button class="btn-login" type="submit">LOGIN</button>
+
+					<p class="signup">
+						Don't have an account? <a href="signup.html">Register now</a>
+					</p>
+				</form>
+				</section>
+			</div>
+		</main>
+	</div>
+
+	<script>
+		// Validate fields before navigating away
+		(function(){
+			const form = document.getElementById('loginForm');
+			const email = document.getElementById('email');
+			const password = document.getElementById('password');
+			if(!form || !email || !password) return;
+
+			function clearTestProgress(){
+				try {
+					['ch1','ch2','ch3','ch4'].forEach(function(ch){
+						try { localStorage.removeItem('hcl_test_result_' + ch); } catch (e) {}
+					});
+					try { localStorage.removeItem('hcl_test_last'); } catch (e2) {}
+					try { sessionStorage.removeItem('mn_source'); } catch (e3) {}
+					try { sessionStorage.removeItem('mn_chapter'); } catch (e4) {}
+				} catch (e5) {}
+			}
+
+			form.addEventListener('submit', function(e){
+				const emailValue = (email.value || '').trim();
+				const passwordValue = (password.value || '').trim();
+
+				// Reset any prior custom errors
+				email.setCustomValidity('');
+				password.setCustomValidity('');
+
+				// Must not be blank + must include "@"
+				if(emailValue.length === 0){
+					email.setCustomValidity('Email cannot be blank.');
+				} else if(!emailValue.includes('@')){
+					email.setCustomValidity('Email must include "@".');
+				}
+
+				if(passwordValue.length === 0){
+					password.setCustomValidity('Password cannot be blank.');
+				}
+
+				if(!form.checkValidity()){
+					e.preventDefault();
+					form.reportValidity();
+					return;
+				}
+
+				// Demo flow: prevent actual submit and go to landing page
+				e.preventDefault();
+				// Reset saved test results each time user logs in
+				clearTestProgress();
+				window.location.href = 'landingpage.html';
+			});
+		})();
+
+		// Toggle password visibility for demo
+		document.addEventListener('click', function(e){
+			const btn = e.target.closest('.eye-btn');
+			if(!btn) return;
+			const wrap = btn.closest('.password-wrap');
+			const input = wrap && wrap.querySelector('input');
+			if(!input) return;
+			if(input.type === 'password'){
+				input.type = 'text';
+				btn.title = 'Hide password';
+			} else {
+				input.type = 'password';
+				btn.title = 'Show password';
+			}
+		});
+	</script>
+</body>
+</html>
+

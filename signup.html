@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Create Account — CertLab</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+    <span class="grid"></span>
+  </div>
+
+  <div class="screen">
+    <header class="top-logo" role="banner">
+      <a class="brand" href="index.html" aria-label="CertLab home">
+        <img class="brand-logo" src="pic/logo.png" alt="CertLab logo">
+        <span class="brand-name">CertLab</span>
+      </a>
+    </header>
+
+    <main class="wrap">
+      <div class="layout">
+        <section class="login-card signup-card" aria-labelledby="signup-title">
+          <h1 id="signup-title" class="card-title">Sign up</h1>
+          <p class="card-subtitle">Fill in your details to get started.</p>
+
+    <div id="signupStep">
+    <form id="signupForm" class="login-form" action="#" method="post" autocomplete="on">
+          <label class="field">
+            <span class="label-text">Name</span>
+            <input id="name" class="input" type="text" name="name" placeholder="john Doe" required autocomplete="name">
+          </label>
+
+          <label class="field">
+            <span class="label-text">Email</span>
+            <input id="email" class="input" type="email" name="email" placeholder="johndoe@gmail.com" required autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false">
+          </label>
+
+          <label class="field">
+            <span class="label-text">Password</span>
+            <div class="password-wrap">
+              <input id="password" class="input" type="password" name="password" placeholder="●●●●●●" required minlength="7" autocomplete="new-password">
+              <button type="button" class="eye-btn" aria-label="Show password" title="Show password">
+                <svg width="18" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="#111827" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="3" stroke="#111827" stroke-opacity="0.6" stroke-width="1.2" fill="#111827" fill-opacity="0.9"/>
+                </svg>
+              </button>
+            </div>
+          </label>
+
+          <label class="field">
+            <span class="label-text">Confirm Password</span>
+            <div class="password-wrap">
+              <input id="confirmPassword" class="input" type="password" name="confirmPassword" placeholder="●●●●●●" required minlength="7" autocomplete="new-password">
+              <button type="button" class="eye-btn" aria-label="Show password" title="Show password">
+                <svg width="18" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="#111827" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="3" stroke="#111827" stroke-opacity="0.6" stroke-width="1.2" fill="#111827" fill-opacity="0.9"/>
+                </svg>
+              </button>
+            </div>
+          </label>
+
+          <div class="row small">
+            <label class="remember"><input id="agree" type="checkbox" name="agree" required> I agree to the <a href="#">term of service</a></label>
+          </div>
+
+          <button class="btn-create" type="submit">Create Account</button>
+
+          <p class="signup small muted">have an account? <a href="login.html">Login now</a></p>
+        </form>
+        </div>
+
+        <div id="recommendStep" class="recommend-step" hidden>
+          <h2 class="step-title">Choose your interests</h2>
+          <p class="step-subtitle">This helps us recommend content for you.</p>
+
+          <form id="recommendForm" class="login-form" action="#" method="post" autocomplete="off">
+            <label class="field">
+              <span class="label-text">Current Occupation</span>
+              <select id="occupation" class="input" name="occupation" required>
+                <option value="" selected disabled>Choose one…</option>
+                <option value="Student">Student</option>
+                <option value="Professional">Working Professional</option>
+                <option value="Freelancer">Freelancer</option>
+                <option value="Job Seeker">Job Seeker</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label class="field" id="occupationOtherField" hidden>
+              <span class="label-text">Occupation (Other)</span>
+              <input id="occupationOther" class="input" type="text" name="occupationOther" placeholder="e.g., Intern" autocomplete="organization-title">
+            </label>
+
+            <label class="field">
+              <span class="label-text">Academic Major</span>
+              <select id="major" class="input" name="major" required>
+                <option value="" selected disabled>Choose one…</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Business">Business</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label class="field" id="majorOtherField" hidden>
+              <span class="label-text">Academic Major (Other)</span>
+              <input id="majorOther" class="input" type="text" name="majorOther" placeholder="Type your major…" autocomplete="off">
+            </label>
+
+            <div class="field">
+              <span class="label-text">Interest Field (choose at least 1)</span>
+              <div id="interestGroup" class="chips" role="group" aria-label="Interest field">
+                <label class="chip"><input type="checkbox" name="interests" value="UX"> <span>UX</span></label>
+                <label class="chip"><input type="checkbox" name="interests" value="UI Design"> <span>UI Design</span></label>
+                <label class="chip"><input type="checkbox" name="interests" value="Cloud Computing"> <span>Cloud Computing</span></label>
+                <label class="chip"><input type="checkbox" name="interests" value="Cybersecurity"> <span>Cybersecurity</span></label>
+                <label class="chip"><input type="checkbox" name="interests" value="Digital Marketing"> <span>Digital Marketing</span></label>
+                <label class="chip"><input type="checkbox" name="interests" value="Data Analytics"> <span>Data Analytics</span></label>
+                <label class="chip"><input type="checkbox" name="interests" value="Web Development"> <span>Web Development</span></label>
+                <label class="chip"><input type="checkbox" name="interests" value="Mobile Development"> <span>Mobile Development</span></label>
+              </div>
+              <p class="hint" id="interestHint">Pick topics you want to see more of.</p>
+            </div>
+
+            <button class="btn-next" type="submit">Choose & Continue</button>
+            <p class="signup small muted">You can change this later in your profile.</p>
+          </form>
+        </div>
+        </section>
+      </div>
+    </main>
+
+	<div id="signupSuccess" class="toast" role="status" aria-live="polite" hidden>
+		Account created!
+	</div>
+  </div>
+
+  <script>
+    // Validate fields (trim + email must include "@")
+    (function(){
+      const form = document.getElementById('signupForm');
+      const signupStep = document.getElementById('signupStep');
+      const recommendStep = document.getElementById('recommendStep');
+      const recommendForm = document.getElementById('recommendForm');
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const confirmPassword = document.getElementById('confirmPassword');
+      const agree = document.getElementById('agree');
+      const toast = document.getElementById('signupSuccess');
+      const submitBtn = form && form.querySelector('.btn-create');
+		  if(!form || !name || !email || !password || !confirmPassword) return;
+
+      const MIN_PASSWORD_LENGTH = 7; // "more than 6" means 7+
+
+      function syncPasswordValidity(){
+        const passwordValue = (password.value || '').trim();
+        const confirmValue = (confirmPassword.value || '').trim();
+
+        password.setCustomValidity('');
+        confirmPassword.setCustomValidity('');
+
+        if(passwordValue.length > 0 && passwordValue.length < MIN_PASSWORD_LENGTH){
+          password.setCustomValidity(`Password must be at least ${MIN_PASSWORD_LENGTH} characters.`);
+        }
+
+        // Only show mismatch once the user has started interacting
+        if(confirmValue.length > 0 && passwordValue !== confirmValue){
+          confirmPassword.setCustomValidity('Passwords do not match.');
+        }
+      }
+
+      password.addEventListener('input', syncPasswordValidity);
+      confirmPassword.addEventListener('input', syncPasswordValidity);
+
+      function showToast(message){
+        if(!toast) return;
+        if(typeof message === 'string') toast.textContent = message;
+        toast.hidden = false;
+        toast.classList.add('show');
+      }
+
+      function hideToast(){
+        if(!toast) return;
+        toast.classList.remove('show');
+        toast.hidden = true;
+      }
+
+      function goToRecommendationStep(){
+        hideToast();
+        if(signupStep) signupStep.hidden = true;
+        if(recommendStep) recommendStep.hidden = false;
+        try{ recommendStep && recommendStep.scrollIntoView({behavior:'smooth', block:'start'}); }catch(e){}
+      }
+
+      form.addEventListener('submit', function(e){
+        const nameValue = (name.value || '').trim();
+        const emailValue = (email.value || '').trim();
+        const passwordValue = (password.value || '').trim();
+        const confirmValue = (confirmPassword.value || '').trim();
+
+		// Normalize trimmed values so "   " doesn't sneak through
+		name.value = nameValue;
+		email.value = emailValue;
+		password.value = passwordValue;
+    confirmPassword.value = confirmValue;
+
+        name.setCustomValidity('');
+        email.setCustomValidity('');
+        password.setCustomValidity('');
+        confirmPassword.setCustomValidity('');
+        if(agree) agree.setCustomValidity('');
+
+        if(nameValue.length === 0){
+          name.setCustomValidity('Name cannot be blank.');
+        }
+
+        if(emailValue.length === 0){
+          email.setCustomValidity('Email cannot be blank.');
+        } else if(!emailValue.includes('@')){
+          email.setCustomValidity('Email must include "@".');
+        }
+
+        if(passwordValue.length === 0){
+          password.setCustomValidity('Password cannot be blank.');
+        } else if(passwordValue.length < MIN_PASSWORD_LENGTH){
+          password.setCustomValidity(`Password must be at least ${MIN_PASSWORD_LENGTH} characters.`);
+        }
+
+        if(confirmValue.length === 0){
+          confirmPassword.setCustomValidity('Confirm password cannot be blank.');
+        } else if(confirmValue.length < MIN_PASSWORD_LENGTH){
+          confirmPassword.setCustomValidity(`Password must be at least ${MIN_PASSWORD_LENGTH} characters.`);
+        } else if(passwordValue !== confirmValue){
+          confirmPassword.setCustomValidity('Passwords do not match.');
+        }
+
+		if(agree && !agree.checked){
+			agree.setCustomValidity('You must agree to the terms of service.');
+		}
+
+        if(!form.checkValidity()){
+          e.preventDefault();
+          form.reportValidity();
+      return;
+        }
+
+    // Store for future personalization (demo)
+    // Demo flow: show feedback then ask recommendation questions
+    e.preventDefault();
+    if(submitBtn) submitBtn.disabled = true;
+    showToast('Account created! One more step…');
+    setTimeout(goToRecommendationStep, 900);
+      });
+
+		if(agree){
+			agree.addEventListener('change', function(){
+				agree.setCustomValidity('');
+			});
+		}
+
+    // Recommendation step logic
+    (function(){
+      if(!recommendForm) return;
+      const occupation = document.getElementById('occupation');
+      const occupationOtherField = document.getElementById('occupationOtherField');
+      const occupationOther = document.getElementById('occupationOther');
+      const major = document.getElementById('major');
+      const majorOtherField = document.getElementById('majorOtherField');
+      const majorOther = document.getElementById('majorOther');
+
+      function toggleOtherFields(){
+        if(occupation && occupationOtherField && occupationOther){
+          const isOtherOcc = occupation.value === 'Other';
+          occupationOtherField.hidden = !isOtherOcc;
+          occupationOther.required = isOtherOcc;
+          if(!isOtherOcc) occupationOther.value = '';
+        }
+        if(major && majorOtherField && majorOther){
+          const isOtherMajor = major.value === 'Other';
+          majorOtherField.hidden = !isOtherMajor;
+          majorOther.required = isOtherMajor;
+          if(!isOtherMajor) majorOther.value = '';
+        }
+      }
+
+      if(occupation) occupation.addEventListener('change', toggleOtherFields);
+      if(major) major.addEventListener('change', toggleOtherFields);
+      toggleOtherFields();
+
+      function getSelectedInterests(){
+        const checked = recommendForm.querySelectorAll('input[name="interests"]:checked');
+        return Array.prototype.map.call(checked, function(x){ return x.value; });
+      }
+
+      recommendForm.addEventListener('change', function(ev){
+        const t = ev.target;
+        if(t && t.name === 'interests'){
+          t.setCustomValidity('');
+        }
+      });
+
+      recommendForm.addEventListener('submit', function(e){
+        // Clear custom validity
+        if(occupation) occupation.setCustomValidity('');
+        if(occupationOther) occupationOther.setCustomValidity('');
+        if(major) major.setCustomValidity('');
+        if(majorOther) majorOther.setCustomValidity('');
+
+        if(occupation && !occupation.value){
+          occupation.setCustomValidity('Please choose your current occupation.');
+        }
+        if(occupation && occupation.value === 'Other' && occupationOther && (occupationOther.value || '').trim().length === 0){
+          occupationOther.setCustomValidity('Please specify your occupation.');
+        }
+        if(major && !major.value){
+          major.setCustomValidity('Please choose your academic major.');
+        }
+        if(major && major.value === 'Other' && majorOther && (majorOther.value || '').trim().length === 0){
+          majorOther.setCustomValidity('Please specify your major.');
+        }
+
+        const interests = getSelectedInterests();
+        const firstInterest = recommendForm.querySelector('input[name="interests"]');
+        if(interests.length === 0 && firstInterest){
+          firstInterest.setCustomValidity('Please choose at least one interest field.');
+        } else if(firstInterest){
+          firstInterest.setCustomValidity('');
+        }
+
+        if(!recommendForm.checkValidity()){
+          e.preventDefault();
+          recommendForm.reportValidity();
+          return;
+        }
+
+        e.preventDefault();
+        try{
+          localStorage.setItem('hcl_user_profile', JSON.stringify({
+            occupation: occupation ? (occupation.value === 'Other' ? (occupationOther.value || '').trim() : occupation.value) : '',
+            major: major ? (major.value === 'Other' ? (majorOther.value || '').trim() : major.value) : '',
+            interests: interests
+          }));
+        }catch(err){}
+
+        showToast('Preferences saved! Redirecting…');
+        setTimeout(function(){ location.href = 'login.html'; }, 900);
+      });
+    })();
+    })();
+
+    // Toggle password visibility
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.eye-btn');
+      if(!btn) return;
+      const wrap = btn.closest('.password-wrap');
+      const input = wrap && wrap.querySelector('input');
+      if(!input) return;
+      if(input.type === 'password'){
+        input.type = 'text';
+        btn.title = 'Hide password';
+        btn.setAttribute('aria-label', 'Hide password');
+      } else {
+        input.type = 'password';
+        btn.title = 'Show password';
+        btn.setAttribute('aria-label', 'Show password');
+      }
+    });
+    
+    // Swipe-right (left->right) edge gesture to go back to login.html
+    (function(){
+      let startX = 0, startY = 0;
+      const threshold = 60; // min horizontal px to count as swipe
+      const restraint = 80; // max vertical movement
+      const edgeMax = 30;   // max x from left edge to start gesture
+
+      function onStart(e){
+        const t = e.changedTouches ? e.changedTouches[0] : e;
+        // only start when touch begins near the left edge
+        if(t.clientX > edgeMax) return;
+        // ignore when typing in an input
+        if(document.activeElement && /input|textarea/i.test(document.activeElement.tagName)) return;
+        startX = t.clientX; startY = t.clientY;
+      }
+
+      function onEnd(e){
+        const t = e.changedTouches ? e.changedTouches[0] : e;
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
+        if(Math.abs(dx) >= threshold && Math.abs(dy) <= restraint && dx > 0){
+          // Go to login.html (use replace to avoid adding extra history entry if desired)
+          location.href = 'login.html';
+        }
+      }
+
+      document.addEventListener('touchstart', onStart, {passive:true});
+      document.addEventListener('touchend', onEnd, {passive:true});
+    })();
+  </script>
+</body>
+</html>
